@@ -23,8 +23,7 @@ defmodule Mandrillex do
   Returns Record
   """
   def process_response_body(body) do
-    json = JSEX.decode! body
-    json = Enum.map json, fn ({k, v}) -> { binary_to_atom(k), v } end
+    json = JSEX.decode!(body, [{:labels, :atom}])
     json
   end
 
