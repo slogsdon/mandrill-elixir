@@ -20,11 +20,9 @@ defmodule Mandrillex do
   Converts the binary keys in our response to atoms.
   Args:
     * body - string binary response
-  Returns Record
+  Returns Record or ArgumentError
   """
   def process_response_body(body) do
-    json = JSEX.decode!(body, [{:labels, :atom}])
-    json
+    JSEX.decode!(body, [{:labels, :atom}])
   end
-
 end
