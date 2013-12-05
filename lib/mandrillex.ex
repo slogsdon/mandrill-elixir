@@ -1,64 +1,31 @@
 defmodule Mandrillex do
-  use Application.Behaviour
+  @moduledoc """
+  An HTTP client for Mandrill.
+  """
 
-  # See http://elixir-lang.org/docs/stable/Application.Behaviour.html
-  # for more information on OTP Applications
-  def start(_type, _args) do
-    Mandrillex.Supervisor.start_link
+  # Let's build on top of HTTPoison
+  use HTTPoison.Base
+
+  @doc """
+  Creates the URL for our endpoint.
+  Args:
+    * endpoint - part of the API we're hitting
+  Returns string
+  """
+  def process_url(enpoint) do
+    "https://mandrillapp.com/api/1.0/" <> enpoint <> ".json"
   end
 
-  defrecord Error, 
-    status: nil, 
-    code: nil, 
-    name: nil, 
-    message: nil
-
-  ## Users
-  defrecord Info,
-    username: nil,
-    created_at: nil,
-    public_id: nil,
-    reputation: nil,
-    hourly_quota: nil,
-    backlog: nil,
-    stats: Stats
-
-  defrecord Stats,
-    today: StatList,
-    last_30_days: StatList,
-    last_60_days: StatList,
-    last_90_days: StatList,
-    all_time: StatList
-
-  defrecord StatList,
-    sent: 0,
-    hard_bounces: 0,
-    soft_bounces: 0,
-    rejects: 0,
-    complaints: 0,
-    unsubs: 0,
-    opens: 0,
-    unique_opens: 0,
-    clicks: 0,
-    unique_clicks: 0
-
-  defrecord Ping2,
-    PING: nil
-  
-  defrecord Sender,
-    address: nil,
-    created_at: nil,
-    sent: nil,
-    hard_bounces: nil,
-    soft_bounces: nil,
-    rejects: nil,
-    complaints: nil,
-    unsubs: nil,
-    opens: nil,
-    clicks: nil,
-    unique_opens: nil,
-    unique_clicks: nil
-
-  ## Messages
+  @doc """
+  Converts the binary keys in our response to atoms.
+  Args:
+    * body - string binary response
+  Returns Record
+  """
+  def process_response_body(body) do
+    json = JSEX.decode! body
+    json = Enum.map json, fn ({k, v}) -> { binary_to_atom(k), v } end
+    json
+  end
 
 end

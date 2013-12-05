@@ -1,3 +1,5 @@
 [ "hackney": {:git, "git://github.com/benoitc/hackney.git", "5b0f7eb949ebebd6fabfbc4e08a7b7231850606a", [{:tag, "0.4.4"}]},
   "httpoison": {:git, "git://github.com/edgurgel/httpoison.git", "d151b197151fd55a5715bb593d41c436ef354850", []},
+  "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "c9df36f07b2089a73ab6b32074c01728f1e5a2e1", []},
+  "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [{:tag, "v1.4.3"}]},
   "mimetypes": {:git, "https://github.com/spawngrid/mimetypes.git", "47d37a977a7d633199822bf6b08353007483d00f", [{:ref, "master"}]} ]
