@@ -12,10 +12,10 @@ a Mandrill wrapper for Elixir
 iex> Mandrillex.start
 :ok
 
-iex(2)> Mandrillex.key
+iex> Mandrillex.key
 "your_key"
 
-iex(3)> Mandrillex.Users.info
+iex> Mandrillex.Users.info
 [username: "your_username", created_at: "2013-12-05 00:24:19.47554",
  public_id: "your_public_id", reputation: 0, hourly_quota: 25,
  backlog: 0,
