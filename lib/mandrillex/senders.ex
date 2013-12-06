@@ -1,16 +1,24 @@
 defmodule Mandrillex.Senders do
+  @moduledoc """
+  Senders calls for Mandrill.
+  """
+
   @doc """
   Return the senders that have tried to 
   use this account.
   """
-  def list(key) do
+  def list do
+    params = [ key: Mandrillex.key ]
+    Mandrillex.request("senders/list", params)
   end
 
   @doc """
   Returns the sender domains that have 
   been added to this account.
   """
-  def domains(key) do
+  def domains do
+    params = [ key: Mandrillex.key ]
+    Mandrillex.request("senders/domains", params)
   end
 
   @doc """
@@ -19,7 +27,12 @@ defmodule Mandrillex.Senders do
   as you send, but you can use this call 
   to add them ahead of time.
   """
-  def add_domain(key, domain) do
+  def add_domain(domain) do
+    params = [ 
+      key: Mandrillex.key,
+      domain: domain 
+    ]
+    Mandrillex.request("senders/add-domain", params)
   end
 
   @doc """
@@ -28,7 +41,12 @@ defmodule Mandrillex.Senders do
   this domain to your account, it will be 
   added automatically.
   """
-  def check_domain(key, domain) do
+  def check_domain(domain) do
+    params = [ 
+      key: Mandrillex.key,
+      domain: domain 
+    ]
+    Mandrillex.request("senders/check-domain", params)
   end
 
   @doc """
@@ -43,7 +61,13 @@ defmodule Mandrillex.Senders do
   This prevents other Mandrill accounts 
   from sending mail signed by your domain.
   """
-  def verify_domain(key, domain, mailbox) do
+  def verify_domain(domain, mailbox) do
+    params = [ 
+      key: Mandrillex.key,
+      domain: domain,
+      mailbox: mailbox
+    ]
+    Mandrillex.request("senders/verify-domain", params)
   end
 
   @doc """
@@ -51,13 +75,23 @@ defmodule Mandrillex.Senders do
   single sender, including aggregates of 
   recent stats
   """
-  def info(key, address) do
+  def info(address) do
+    params = [ 
+      key: Mandrillex.key,
+      address: address 
+    ]
+    Mandrillex.request("senders/info", params)
   end
 
   @doc """
   Return the recent history (hourly stats 
   for the last 30 days) for a sender
   """
-  def time_series(key, address) do
+  def time_series(address) do
+    params = [ 
+      key: Mandrillex.key,
+      address: address 
+    ]
+    Mandrillex.request("senders/time-series", params)
   end
 end

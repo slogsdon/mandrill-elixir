@@ -1,29 +1,59 @@
 defmodule Mandrillex.Subaccounts do
+  @moduledoc """
+  Subaccounts calls for Mandrill.
+  """
+
   @doc """
   Get the list of subaccounts defined for 
   the account, optionally filtered by a 
   prefix
   """
-  def list(key, q) do
+  def list(q) do
+    params = [ 
+      key: Mandrillex.key,
+      q: q 
+    ]
+    Mandrillex.request("subaccounts/list", params)
   end
 
   @doc """
   Add a new subaccount
   """
-  def add(key, id, name, notes, custom_quota) do
+  def add(id, name, notes, custom_quota) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id,
+      name: name,
+      notes: notes,
+      custom_quota: custom_quota
+    ]
+    Mandrillex.request("subaccounts/add", params)
   end
 
   @doc """
   Given the ID of an existing subaccount, 
   return the data about it
   """
-  def info(key, id) do
+  def info(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id
+    ]
+    Mandrillex.request("subaccounts/info", params)
   end
 
   @doc """
   Update an existing subaccount
   """
-  def update(key, id, name, notes, custom_quota) do
+  def update(id, name, notes, custom_quota) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id,
+      name: name,
+      notes: notes,
+      custom_quota: custom_quota
+    ]
+    Mandrillex.request("subaccounts/update", params)
   end
 
   @doc """
@@ -32,7 +62,12 @@ defmodule Mandrillex.Subaccounts do
   but stats will be removed and any future 
   sending calls to this subaccount will fail.
   """
-  def delete(key, id) do
+  def delete(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id 
+    ]
+    Mandrillex.request("subaccounts/delete", params)
   end
 
   @doc """
@@ -41,12 +76,22 @@ defmodule Mandrillex.Subaccounts do
   queued for a maximum of 3 days until the 
   subaccount is resumed.
   """
-  def pause(key, id) do
+  def pause(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id
+    ]
+    Mandrillex.request("subaccounts/pause", params)
   end
 
   @doc """
   Resume a paused subaccount's sending
   """
-  def resume(key, id) do
+  def resume(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id 
+    ]
+    Mandrillex.request("subaccounts/resume", params)
   end
 end

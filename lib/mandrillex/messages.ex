@@ -1,16 +1,38 @@
 defmodule Mandrillex.Messages do
+  @moduledoc """
+  Messages calls for Mandrill.
+  """
+
   @doc """
   Send a new transactional message through 
   Mandrill
   """
-  def send(key, message, async, ip_pool, send_at) do
+  def send(message, async, ip_pool, send_at) do
+    params = [ 
+      key: Mandrillex.key,
+      message: message,
+      async: async,
+      ip_pool: ip_pool,
+      send_at: send_at
+    ]
+    Mandrillex.request("messages/Send", params)
   end
   
   @doc """
   Send a new transactional message through 
   Mandrill using a template
   """
-  def send_template(key, template_name, template_content, message, async, ip_pool, send_at) do
+  def send_template(template_name, template_content, message, async, ip_pool, send_at) do
+    params = [ 
+      key: Mandrillex.key,
+      template_name: template_name,
+      template_content: template_content,
+      message: message,
+      async: async,
+      ip_pool: ip_pool,
+      send_at: send_at 
+    ]
+    Mandrillex.request("messages/send_template", params)
   end
   
   @doc """
@@ -18,7 +40,18 @@ defmodule Mandrillex.Messages do
   and optionally narrow by date range, tags 
   and senders
   """
-  def search(key, query, date_from, date_to, tags, senders, api_keys, limit) do
+  def search(query, date_from, date_to, tags, senders, api_keys, limit) do
+    params = [ 
+      key: Mandrillex.key,
+      query: query,
+      date_from: date_from,
+      date_to: date_to,
+      tags: tags,
+      senders: senders,
+      api_keys: api_keys,
+      limit: limit
+    ]
+    Mandrillex.request("messages/search", params)
   end
   
   @doc """
@@ -26,21 +59,40 @@ defmodule Mandrillex.Messages do
   and return the aggregated hourly stats for 
   matching messages
   """
-  def search_time_series(key, query, date_from, date_to, tags, senders) do
+  def search_time_series(query, date_from, date_to, tags, senders) do
+    params = [ 
+      key: Mandrillex.key,
+      query: query,
+      date_from: date_from,
+      date_to: date_to,
+      tags: tags,
+      senders: senders 
+    ]
+    Mandrillex.request("messages/search-time-series", params)
   end
   
   @doc """
   Get the information for a single recently 
   sent message
   """
-  def info(key, id) do
+  def info(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id 
+    ]
+    Mandrillex.request("messages/info", params)
   end
   
   @doc """
   Get the full content of a recently sent 
   message
   """
-  def content(key, id) do
+  def content(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id 
+    ]
+    Mandrillex.request("messages/content", params)
   end
   
   @doc """
@@ -48,7 +100,12 @@ defmodule Mandrillex.Messages do
   message, returning the content of the 
   message broken into its constituent pieces
   """
-  def parse(key, raw_message) do
+  def parse(raw_message) do
+    params = [ 
+      key: Mandrillex.key,
+      raw_message: raw_message 
+    ]
+    Mandrillex.request("messages/parse", params)
   end
   
   @doc """
@@ -56,25 +113,53 @@ defmodule Mandrillex.Messages do
   send it exactly as if it were sent through 
   Mandrill's SMTP servers
   """
-  def send_raw(key, raw_message, from_email // nil, from_name // nil, to // nil, async, ip_pool, send_at, return_path_domain) do
+  def send_raw(raw_message, from_email // nil, from_name // nil, to // nil, async, ip_pool, send_at, return_path_domain) do
+    params = [ 
+      key: Mandrillex.key,
+      raw_message: raw_message,
+      from_email: from_email,
+      from_name: from_name,
+      to: to,
+      async: async,
+      ip_pool: ip_pool,
+      send_at: send_at,
+      return_path_domain: return_path_domain
+    ]
+    Mandrillex.request("messages/send-raw", params)
   end
   
   @doc """
   Queries your scheduled emails by sender or 
   recipient, or both.
   """
-  def list_scheduled(key, to) do
+  def list_scheduled(to) do
+    params = [ 
+      key: Mandrillex.key,
+      to: to 
+    ]
+    Mandrillex.request("messages/list-scheduled", params)
   end
   
   @doc """
   Cancels a scheduled email.
   """
-  def cancel_scheduled(key, id) do
+  def cancel_scheduled(id) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id 
+    ]
+    Mandrillex.request("messages/cancel-scheduled", params)
   end
   
   @doc """
   Reschedules a scheduled email.
   """
-  def reschedule(key, id, send_at) do
+  def reschedule(id, send_at) do
+    params = [ 
+      key: Mandrillex.key,
+      id: id,
+      send_At: send_at
+    ]
+    Mandrillex.request("messages/reschedule", params)
   end
 end
