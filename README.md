@@ -50,3 +50,5 @@ iex> Mandrillex.Users.info[:username]
 ## License
 
 See [LICENSE](https://github.com/slogsdon/mandrillex/blob/master/LICENSE)
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/949f7db1a2574d19a36cf9a21a760a6a "githalytics.com")](http://githalytics.com/slogsdon/mandrillex)
