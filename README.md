@@ -4,6 +4,10 @@ a Mandrill wrapper for Elixir
 
 ## Usage
 
+> ##### Note
+> mandrillex requires the `MANDRILL_KEY` environment variable set to a 
+> valid API key associated with your Mandrill account.
+
 ```elixir
 iex> Mandrillex.start
 :ok
