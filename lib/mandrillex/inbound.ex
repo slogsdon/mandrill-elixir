@@ -83,6 +83,7 @@ defmodule Mandrillex.Inbound do
   def update_route(id, pattern, url) do
     params = [ 
       key: Mandrillex.key,
+      id: id,
       pattern: pattern,
       url: url
     ]

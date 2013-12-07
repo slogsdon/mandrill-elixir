@@ -84,6 +84,7 @@ defmodule Mandrillex.Exports do
       date_to: date_to,
       tags: tags,
       senders: senders,
+      states: states,
       api_keys: api_keys
     ]
     Mandrillex.request("exports/activity", params)
