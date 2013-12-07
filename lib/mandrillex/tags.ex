@@ -19,6 +19,9 @@ defmodule Mandrillex.Tags do
   stats. There is no way to undo this 
   operation, so use it carefully.
   """
+  def delete(params) when is_list(params) do
+    Mandrillex.request("tags/delete", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete(tag) do
     params = [ 
       key: Mandrillex.key,
@@ -32,6 +35,9 @@ defmodule Mandrillex.Tags do
   single tag, including aggregates of recent 
   stats
   """
+  def info(params) when is_list(params) do
+    Mandrillex.request("tags/info", Enum.concat([key: Mandrillex.key], params))
+  end
   def info(tag) do
     params = [ 
       key: Mandrillex.key,
@@ -44,6 +50,9 @@ defmodule Mandrillex.Tags do
   Return the recent history (hourly stats 
   for the last 30 days) for a tag
   """
+  def time_series(params) when is_list(params) do
+    Mandrillex.request("tags/time-series", Enum.concat([key: Mandrillex.key], params))
+  end
   def time_series(tag) do
     params = [ 
       key: Mandrillex.key,

@@ -42,6 +42,10 @@ iex> Mandrillex.Users.info[:username]
 "your_username"
 ```
 
+## Reference
+
+See [Mandrill's API docs](https://mandrillapp.com/api/docs/).
+
 ## Dependencies
 
 - [HTTPoison](https://github.com/edgurgel/httpoison)

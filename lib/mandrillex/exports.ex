@@ -14,6 +14,9 @@ defmodule Mandrillex.Exports do
   include more details about the output 
   format for that job type.
   """
+  def info(params) when is_list(params) do
+    Mandrillex.request("exports/info", Enum.concat([key: Mandrillex.key], params))
+  end
   def info(id) do
     params = [
       key: Mandrillex.key,
@@ -39,6 +42,9 @@ defmodule Mandrillex.Exports do
   created_at, expires_at, last_event_at, 
   expires_at.
   """
+  def rejects(params) when is_list(params) do
+    Mandrillex.request("exports/rejects", Enum.concat([key: Mandrillex.key], params))
+  end
   def rejects(notify_email) do
     params = [ 
       key: Mandrillex.key,
@@ -55,6 +61,9 @@ defmodule Mandrillex.Exports do
   following fields: email, detail, 
   created_at.
   """
+  def whitelist(params) when is_list(params) do
+    Mandrillex.request("exports/whitelist", Enum.concat([key: Mandrillex.key], params))
+  end
   def whitelist(notify_email) do
     params = [ 
       key: Mandrillex.key,
@@ -76,6 +85,9 @@ defmodule Mandrillex.Exports do
   custom metadata fields, they will be 
   included in the exported data.
   """
+  def activity(params) when is_list(params) do
+    Mandrillex.request("exports/activity", Enum.concat([key: Mandrillex.key], params))
+  end
   def activity(notify_email, date_from, date_to, tags, senders, states, api_keys) do
     params = [ 
       key: Mandrillex.key,

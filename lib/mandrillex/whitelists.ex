@@ -9,6 +9,9 @@ defmodule Mandrillex.Whitelists do
   on your blacklist, that blacklist entry 
   will be removed automatically.
   """
+  def add(params) when is_list(params) do
+    Mandrillex.request("whitelists/add", Enum.concat([key: Mandrillex.key], params))
+  end
   def add(email) do
     params = [ 
       key: Mandrillex.key,
@@ -23,6 +26,9 @@ defmodule Mandrillex.Whitelists do
   search prefix to limit the results. 
   Returns up to 1000 results.
   """
+  def list(params) when is_list(params) do
+    Mandrillex.request("whitelists/list", Enum.concat([key: Mandrillex.key], params))
+  end
   def list(email) do
     params = [ 
       key: Mandrillex.key,
@@ -35,6 +41,9 @@ defmodule Mandrillex.Whitelists do
   Removes an email address from the 
   whitelist.
   """
+  def delete(params) when is_list(params) do
+    Mandrillex.request("whitelists/delete", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete(email) do
     params = [ 
       key: Mandrillex.key,

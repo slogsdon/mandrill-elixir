@@ -15,6 +15,9 @@ defmodule Mandrillex.Inbound do
   @doc """
   Add an inbound domain to your account
   """
+  def add_domain(params) when is_list(params) do
+    Mandrillex.request("inbound/add_domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def add_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -28,6 +31,9 @@ defmodule Mandrillex.Inbound do
   The domain must have already been added 
   with the add-domain call
   """
+  def check_domain(params) when is_list(params) do
+    Mandrillex.request("inbound/check-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def check_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -41,6 +47,9 @@ defmodule Mandrillex.Inbound do
   All mail will stop routing for this domain 
   immediately.
   """
+  def delete_domain(params) when is_list(params) do
+    Mandrillex.request("inbound/delete-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -53,6 +62,9 @@ defmodule Mandrillex.Inbound do
   List the mailbox routes defined for an 
   inbound domain
   """
+  def routes(params) when is_list(params) do
+    Mandrillex.request("inbound/routes", Enum.concat([key: Mandrillex.key], params))
+  end
   def routes(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -64,6 +76,9 @@ defmodule Mandrillex.Inbound do
   @doc """
   Add a new mailbox route to an inbound domain
   """
+  def add_route(params) when is_list(params) do
+    Mandrillex.request("inbound/add-route", Enum.concat([key: Mandrillex.key], params))
+  end
   def add_route(domain, pattern, url) do
     params = [ 
       key: Mandrillex.key,
@@ -80,6 +95,9 @@ defmodule Mandrillex.Inbound do
   for any fields, the values will remain 
   unchanged.
   """
+  def update_route(params) when is_list(params) do
+    Mandrillex.request("inbound/update-route", Enum.concat([key: Mandrillex.key], params))
+  end
   def update_route(id, pattern, url) do
     params = [ 
       key: Mandrillex.key,
@@ -93,6 +111,9 @@ defmodule Mandrillex.Inbound do
   @doc """
   Delete an existing inbound mailbox route
   """
+  def delete_route(params) when is_list(params) do
+    Mandrillex.request("inbound/delete-route", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete_route(id) do
     params = [ 
       key: Mandrillex.key,
@@ -107,6 +128,9 @@ defmodule Mandrillex.Inbound do
   it to the inbound hook exactly as if it had 
   been sent over SMTP
   """
+  def send_raw(params) when is_list(params) do
+    Mandrillex.request("inbound/send-raw", Enum.concat([key: Mandrillex.key], params))
+  end
   def send_raw(raw_message, to // nil, mail_from, helo, client_address) do
     params = [ 
       key: Mandrillex.key,

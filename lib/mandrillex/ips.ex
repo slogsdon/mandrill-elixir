@@ -7,9 +7,7 @@ defmodule Mandrillex.Ips do
   Lists your dedicated IPs.
   """
   def list do
-    params = [ 
-      key: Mandrillex.key
-    ]
+    params = [ key: Mandrillex.key ]
     Mandrillex.request("ips/list", params)
   end
 
@@ -17,6 +15,9 @@ defmodule Mandrillex.Ips do
   Retrieves information about a single 
   dedicated ip.
   """
+  def info(params) when is_list(params) do
+    Mandrillex.request("ips/info", Enum.concat([key: Mandrillex.key], params))
+  end
   def info(ip) do
     params = [ 
       key: Mandrillex.key,
@@ -31,6 +32,9 @@ defmodule Mandrillex.Ips do
   request at any time, and provisioning 
   requests are processed within 24 hours.
   """
+  def provision(params) when is_list(params) do
+    Mandrillex.request("ips/provision", Enum.concat([key: Mandrillex.key], params))
+  end
   def provision(warmup, pool) do
     params = [ 
       key: Mandrillex.key,
@@ -49,6 +53,9 @@ defmodule Mandrillex.Ips do
   your mail will be sent over shared IPs or 
   other dedicated IPs in the same pool.
   """
+  def start_warmup(params) when is_list(params) do
+    Mandrillex.request("ips/start-warmup", Enum.concat([key: Mandrillex.key], params))
+  end
   def start_warmup(ip) do
     params = [ 
       key: Mandrillex.key,
@@ -60,6 +67,9 @@ defmodule Mandrillex.Ips do
   @doc """
   Cancels the warmup process for a dedicated IP.
   """
+  def cancel_warmup(params) when is_list(params) do
+    Mandrillex.request("ips/cancel-warmup", Enum.concat([key: Mandrillex.key], params))
+  end
   def cancel_warmup(ip) do
     params = [ 
       key: Mandrillex.key,
@@ -71,6 +81,9 @@ defmodule Mandrillex.Ips do
   @doc """
   Moves a dedicated IP to a different pool.
   """
+  def set_pool(params) when is_list(params) do
+    Mandrillex.request("ips/set-pool", Enum.concat([key: Mandrillex.key], params))
+  end
   def set_pool(ip, pool, create_pool) do
     params = [ 
       key: Mandrillex.key,
@@ -85,6 +98,9 @@ defmodule Mandrillex.Ips do
   Deletes a dedicated IP. This is permanent and 
   cannot be undone.
   """
+  def delete(params) when is_list(params) do
+    Mandrillex.request("ips/delete", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete(ip) do
     params = [ 
       key: Mandrillex.key,
@@ -97,15 +113,16 @@ defmodule Mandrillex.Ips do
   Lists your dedicated IP pools.
   """
   def list_pools do
-    params = [ 
-      key: Mandrillex.key
-    ]
+    params = [ key: Mandrillex.key ]
     Mandrillex.request("ips/list-pools", params)
   end
   
   @doc """
   Describes a single dedicated IP pool.
   """
+  def pool_info(params) when is_list(params) do
+    Mandrillex.request("ips/pool-info", Enum.concat([key: Mandrillex.key], params))
+  end
   def pool_info(pool) do
     params = [ 
       key: Mandrillex.key,
@@ -119,6 +136,9 @@ defmodule Mandrillex.Ips do
   already exists with this name, no action will 
   be performed.
   """
+  def create_pool(params) when is_list(params) do
+    Mandrillex.request("ips/create-pool", Enum.concat([key: Mandrillex.key], params))
+  end
   def create_pool(pool) do
     params = [ 
       key: Mandrillex.key,
@@ -132,6 +152,9 @@ defmodule Mandrillex.Ips do
   you can delete it, and you cannot delete your 
   default pool.
   """
+  def delete_pool(params) when is_list(params) do
+    Mandrillex.request("ips/delete-pool", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete_pool(pool) do
     params = [ 
       key: Mandrillex.key,
@@ -144,6 +167,9 @@ defmodule Mandrillex.Ips do
   Tests whether a domain name is valip for use as 
   the custom reverse DNS for a dedicated IP.
   """
+  def check_custom_dns(params) when is_list(params) do
+    Mandrillex.request("ips/check-custom-dns", Enum.concat([key: Mandrillex.key], params))
+  end
   def check_custom_dns(ip, domain) do
     params = [ 
       key: Mandrillex.key,
@@ -157,6 +183,9 @@ defmodule Mandrillex.Ips do
   Configures the custom DNS name for a dedicated 
   IP.
   """
+  def set_custom_dns(params) when is_list(params) do
+    Mandrillex.request("ips/set-custom-dns", Enum.concat([key: Mandrillex.key], params))
+  end
   def set_custom_dns(ip, domain) do
     params = [ 
       key: Mandrillex.key,

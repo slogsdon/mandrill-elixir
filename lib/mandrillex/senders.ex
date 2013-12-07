@@ -27,6 +27,9 @@ defmodule Mandrillex.Senders do
   as you send, but you can use this call 
   to add them ahead of time.
   """
+  def add_domain(params) when is_list(params) do
+    Mandrillex.request("senders/add-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def add_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -41,6 +44,9 @@ defmodule Mandrillex.Senders do
   this domain to your account, it will be 
   added automatically.
   """
+  def check_domain(params) when is_list(params) do
+    Mandrillex.request("senders/check-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def check_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -61,6 +67,9 @@ defmodule Mandrillex.Senders do
   This prevents other Mandrill accounts 
   from sending mail signed by your domain.
   """
+  def verify_domain(params) when is_list(params) do
+    Mandrillex.request("senders/verify-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def verify_domain(domain, mailbox) do
     params = [ 
       key: Mandrillex.key,
@@ -75,6 +84,9 @@ defmodule Mandrillex.Senders do
   single sender, including aggregates of 
   recent stats
   """
+  def info(params) when is_list(params) do
+    Mandrillex.request("senders/info", Enum.concat([key: Mandrillex.key], params))
+  end
   def info(address) do
     params = [ 
       key: Mandrillex.key,
@@ -87,6 +99,9 @@ defmodule Mandrillex.Senders do
   Return the recent history (hourly stats 
   for the last 30 days) for a sender
   """
+  def time_series(params) when is_list(params) do
+    Mandrillex.request("senders/time-series", Enum.concat([key: Mandrillex.key], params))
+  end
   def time_series(address) do
     params = [ 
       key: Mandrillex.key,

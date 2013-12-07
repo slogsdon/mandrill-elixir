@@ -12,6 +12,9 @@ defmodule Mandrillex.Rejects do
   address that has been whitelisted will 
   have no effect.
   """
+  def add(params) when is_list(params) do
+    Mandrillex.request("rejects/add", Enum.concat([key: Mandrillex.key], params))
+  end
   def add(email, comment, subaccount) do
     params = [ 
       key: Mandrillex.key,
@@ -30,6 +33,9 @@ defmodule Mandrillex.Rejects do
   excluded from the results; set 
   include_expired to true to include them.
   """
+  def list(params) when is_list(params) do
+    Mandrillex.request("rejects/list", Enum.concat([key: Mandrillex.key], params))
+  end
   def list(email, include_expired, subaccount) do
     params = [ 
       key: Mandrillex.key,
@@ -47,6 +53,9 @@ defmodule Mandrillex.Rejects do
   mind that each deletion has an affect on 
   your reputation.
   """
+  def delete(params) when is_list(params) do
+    Mandrillex.request("rejects/delete", Enum.concat([key: Mandrillex.key], params))
+  end
   def delete(email, subaccount) do
     params = [ 
       key: Mandrillex.key,

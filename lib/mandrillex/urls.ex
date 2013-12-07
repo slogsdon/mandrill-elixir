@@ -15,6 +15,9 @@ defmodule Mandrillex.Urls do
   Return the 100 most clicked URLs that 
   match the search query given
   """
+  def search(params) when is_list(params) do
+    Mandrillex.request("urls/search", Enum.concat([key: Mandrillex.key], params))
+  end
   def search(q) do
     params = [ 
       key: Mandrillex.key,
@@ -27,6 +30,9 @@ defmodule Mandrillex.Urls do
   Return the recent history (hourly stats 
   for the last 30 days) for a url
   """
+  def time_series(params) when is_list(params) do
+    Mandrillex.request("urls/time-series", Enum.concat([key: Mandrillex.key], params))
+  end
   def time_series(url) do
     params = [ 
       key: Mandrillex.key,
@@ -47,6 +53,9 @@ defmodule Mandrillex.Urls do
   @doc """
   Add a tracking domain to your account
   """
+  def add_tracking_domain(params) when is_list(params) do
+    Mandrillex.request("urls/add-tracking-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def add_tracking_domain(domain) do
     params = [ 
       key: Mandrillex.key,
@@ -60,6 +69,9 @@ defmodule Mandrillex.Urls do
   domain. The domain must have been added 
   already with the add-tracking-domain call
   """
+  def check_tracking_domain(params) when is_list(params) do
+    Mandrillex.request("urls/check-tracking-domain", Enum.concat([key: Mandrillex.key], params))
+  end
   def check_tracking_domain(domain) do
     params = [ 
       key: Mandrillex.key,
