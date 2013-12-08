@@ -17,8 +17,8 @@ defmodule Mandrillex do
     * endpoint - part of the API we're hitting
   Returns string
   """
-  def process_url(enpoint) do
-    "https://mandrillapp.com/api/1.0/" <> enpoint <> ".json"
+  def process_url(endpoint) do
+    "https://mandrillapp.com/api/1.0/" <> endpoint <> ".json"
   end
 
   @doc """
