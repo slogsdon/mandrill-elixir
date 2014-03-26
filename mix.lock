@@ -1,5 +1,6 @@
-[ "hackney": {:git, "git://github.com/benoitc/hackney.git", "5b0f7eb949ebebd6fabfbc4e08a7b7231850606a", [{:tag, "0.4.4"}]},
-  "httpoison": {:git, "git://github.com/edgurgel/httpoison.git", "d151b197151fd55a5715bb593d41c436ef354850", []},
+[ "hackney": {:git, "git://github.com/benoitc/hackney.git", "7f2a0b5996313d930277786e7ff5d538e9346547", [{:tag, "0.10.1"}]},
+  "hackney_lib": {:git, "git://github.com/benoitc/hackney_lib.git", "eecdb481f1d38bfb194896bffdf9bdcdd967ae96", [{:tag, "0.2.2"}]},
+  "httpoison": {:git, "git://github.com/edgurgel/httpoison.git", "376bf1f254e260205dd573e4788db364b2c34b12", [{:tag, "0.0.1"}]},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "c9df36f07b2089a73ab6b32074c01728f1e5a2e1", []},
   "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [{:tag, "v1.4.3"}]},
-  "mimetypes": {:git, "https://github.com/spawngrid/mimetypes.git", "47d37a977a7d633199822bf6b08353007483d00f", [{:ref, "master"}]} ]
+  "mimetypes": {:git, "git://github.com/spawngrid/mimetypes.git", "47d37a977a7d633199822bf6b08353007483d00f", [{:ref, "master"}]} ]

@@ -2,9 +2,9 @@ defmodule Mandrillex.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :mandrill,
+    [ app: :mandrillex,
       version: "0.1.0",
-      elixir: "~> 0.11.3-dev",
+      elixir: "~> 0.12.1",
       deps: deps ]
   end
 
@@ -20,7 +20,8 @@ defmodule Mandrillex.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      { :httpoison, github: "edgurgel/httpoison" },
+      { :hackney_lib, github: "benoitc/hackney_lib", tag: "0.2.2", override: true },
+      { :httpoison, github: "edgurgel/httpoison", tag: "0.0.1" },
       { :jsex, github: "talentdeficit/jsex"} 
     ]
   end
