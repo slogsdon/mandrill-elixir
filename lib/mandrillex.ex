@@ -4,7 +4,7 @@ defmodule Mandrillex do
   """
 
   # Let's build on top of HTTPoison
-  use Application.Behaviour
+  use Application
   use HTTPoison.Base
 
   def start(_type, _args) do

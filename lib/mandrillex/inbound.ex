@@ -131,7 +131,7 @@ defmodule Mandrillex.Inbound do
   def send_raw(params) when is_list(params) do
     Mandrillex.request("inbound/send-raw", Enum.concat([key: Mandrillex.key], params))
   end
-  def send_raw(raw_message, to // nil, mail_from, helo, client_address) do
+  def send_raw(raw_message, to \\ nil, mail_from, helo, client_address) do
     params = [ 
       key: Mandrillex.key,
       raw_message: raw_message,

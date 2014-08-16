@@ -3,8 +3,8 @@ defmodule Mandrillex.Mixfile do
 
   def project do
     [ app: :mandrillex,
-      version: "0.1.0",
-      elixir: "~> 0.12.1",
+      version: "0.2.0",
+      elixir: "~> 0.15.0",
       deps: deps ]
   end
 
@@ -20,9 +20,9 @@ defmodule Mandrillex.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      { :hackney_lib, github: "benoitc/hackney_lib", tag: "0.2.2", override: true },
-      { :httpoison, github: "edgurgel/httpoison", tag: "0.0.1" },
-      { :jsex, github: "talentdeficit/jsex"} 
+      { :httpoison, "~> 0.3" },
+      { :hackney, "~> 0.13.1" }, # not included in hex version of httpoison :(
+      { :jsex, "~> 2.0.0" } 
     ]
   end
 end
