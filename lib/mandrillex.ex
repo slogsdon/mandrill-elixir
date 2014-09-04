@@ -47,6 +47,7 @@ defmodule Mandrillex do
   Returns binary
   """
   def key do
-    System.get_env("MANDRILL_KEY")
+    Application.get_env(:mandrillex, :key) ||
+      System.get_env("MANDRILL_KEY")
   end
 end
