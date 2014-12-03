@@ -4,7 +4,7 @@ defmodule Mandrillex.Mixfile do
   def project do
     [ app: :mandrillex,
       version: "0.2.0",
-      elixir: "~> 0.15.0",
+      elixir: "~> 1.0",
       deps: deps ]
   end
 
