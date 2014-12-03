@@ -1,5 +1,7 @@
-%{"hackney": {:package, "0.13.1"},
-  "httpoison": {:package, "0.3.2"},
-  "idna": {:package, "1.0.1"},
-  "jsex": {:package, "2.0.0"},
-  "jsx": {:package, "2.0.4"}}
+%{"earmark": {:hex, :earmark, "0.1.12"},
+  "ex_doc": {:hex, :ex_doc, "0.6.1"},
+  "hackney": {:hex, :hackney, "0.13.1"},
+  "httpoison": {:hex, :httpoison, "0.3.2"},
+  "idna": {:hex, :idna, "1.0.1"},
+  "jsex": {:hex, :jsex, "2.0.0"},
+  "jsx": {:hex, :jsx, "2.0.4"}}
