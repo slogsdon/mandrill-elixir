@@ -10,7 +10,8 @@ defmodule Mandrillex.Mixfile do
 
   # Configuration for the OTP application
   def application do
-    [mod: { Mandrillex, [] }]
+    [ mod: { Mandrillex, [] },
+      applications: [:httpoison] ]
   end
 
   # Returns the list of dependencies in the format:
@@ -22,7 +23,7 @@ defmodule Mandrillex.Mixfile do
     [
       { :httpoison, "~> 0.3" },
       { :hackney, "~> 0.13.1" }, # not included in hex version of httpoison :(
-      { :jsex, "~> 2.0.0" } 
+      { :jsex, "~> 2.0.0" }
     ]
   end
 end
