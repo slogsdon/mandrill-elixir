@@ -1,4 +1,4 @@
-defmodule Mandrillex.Ips do
+defmodule Mandrill.Ips do
   @moduledoc """
   Ips calls for Mandrill.
   """
@@ -7,8 +7,8 @@ defmodule Mandrillex.Ips do
   Lists your dedicated IPs.
   """
   def list do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("ips/list", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("ips/list", params)
   end
 
   @doc """
@@ -16,14 +16,14 @@ defmodule Mandrillex.Ips do
   dedicated ip.
   """
   def info(params) when is_list(params) do
-    Mandrillex.request("ips/info", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/info", Enum.concat([key: Mandrill.key], params))
   end
   def info(ip) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip 
     ]
-    Mandrillex.request("ips/info", params)
+    Mandrill.request("ips/info", params)
   end
   
   @doc """
@@ -33,15 +33,15 @@ defmodule Mandrillex.Ips do
   requests are processed within 24 hours.
   """
   def provision(params) when is_list(params) do
-    Mandrillex.request("ips/provision", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/provision", Enum.concat([key: Mandrill.key], params))
   end
   def provision(warmup, pool) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       warmup: warmup,
       pool: pool 
     ]
-    Mandrillex.request("ips/provision", params)
+    Mandrill.request("ips/provision", params)
   end
   
   @doc """
@@ -54,44 +54,44 @@ defmodule Mandrillex.Ips do
   other dedicated IPs in the same pool.
   """
   def start_warmup(params) when is_list(params) do
-    Mandrillex.request("ips/start-warmup", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/start-warmup", Enum.concat([key: Mandrill.key], params))
   end
   def start_warmup(ip) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip 
     ]
-    Mandrillex.request("ips/start-warmup", params)
+    Mandrill.request("ips/start-warmup", params)
   end
   
   @doc """
   Cancels the warmup process for a dedicated IP.
   """
   def cancel_warmup(params) when is_list(params) do
-    Mandrillex.request("ips/cancel-warmup", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/cancel-warmup", Enum.concat([key: Mandrill.key], params))
   end
   def cancel_warmup(ip) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip 
     ]
-    Mandrillex.request("ips/cancel-warmup", params)
+    Mandrill.request("ips/cancel-warmup", params)
   end
   
   @doc """
   Moves a dedicated IP to a different pool.
   """
   def set_pool(params) when is_list(params) do
-    Mandrillex.request("ips/set-pool", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/set-pool", Enum.concat([key: Mandrill.key], params))
   end
   def set_pool(ip, pool, create_pool) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip,
       pool: pool,
       create_pool: create_pool
     ]
-    Mandrillex.request("ips/set-pool", params)
+    Mandrill.request("ips/set-pool", params)
   end
   
   @doc """
@@ -99,36 +99,36 @@ defmodule Mandrillex.Ips do
   cannot be undone.
   """
   def delete(params) when is_list(params) do
-    Mandrillex.request("ips/delete", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/delete", Enum.concat([key: Mandrill.key], params))
   end
   def delete(ip) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip 
     ]
-    Mandrillex.request("ips/delete", params)
+    Mandrill.request("ips/delete", params)
   end
   
   @doc """
   Lists your dedicated IP pools.
   """
   def list_pools do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("ips/list-pools", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("ips/list-pools", params)
   end
   
   @doc """
   Describes a single dedicated IP pool.
   """
   def pool_info(params) when is_list(params) do
-    Mandrillex.request("ips/pool-info", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/pool-info", Enum.concat([key: Mandrill.key], params))
   end
   def pool_info(pool) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       pool: pool 
     ]
-    Mandrillex.request("ips/pool-info", params)
+    Mandrill.request("ips/pool-info", params)
   end
   
   @doc """
@@ -137,14 +137,14 @@ defmodule Mandrillex.Ips do
   be performed.
   """
   def create_pool(params) when is_list(params) do
-    Mandrillex.request("ips/create-pool", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/create-pool", Enum.concat([key: Mandrill.key], params))
   end
   def create_pool(pool) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       pool: pool 
     ]
-    Mandrillex.request("ips/create-pool", params)
+    Mandrill.request("ips/create-pool", params)
   end
   
   @doc """
@@ -153,14 +153,14 @@ defmodule Mandrillex.Ips do
   default pool.
   """
   def delete_pool(params) when is_list(params) do
-    Mandrillex.request("ips/delete-pool", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/delete-pool", Enum.concat([key: Mandrill.key], params))
   end
   def delete_pool(pool) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       pool: pool 
     ]
-    Mandrillex.request("ips/delete-pool", params)
+    Mandrill.request("ips/delete-pool", params)
   end
   
   @doc """
@@ -168,15 +168,15 @@ defmodule Mandrillex.Ips do
   the custom reverse DNS for a dedicated IP.
   """
   def check_custom_dns(params) when is_list(params) do
-    Mandrillex.request("ips/check-custom-dns", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/check-custom-dns", Enum.concat([key: Mandrill.key], params))
   end
   def check_custom_dns(ip, domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip ,
       domain: domain
     ]
-    Mandrillex.request("ips/check-custom-dns", params)
+    Mandrill.request("ips/check-custom-dns", params)
   end
   
   @doc """
@@ -184,14 +184,14 @@ defmodule Mandrillex.Ips do
   IP.
   """
   def set_custom_dns(params) when is_list(params) do
-    Mandrillex.request("ips/set-custom-dns", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("ips/set-custom-dns", Enum.concat([key: Mandrill.key], params))
   end
   def set_custom_dns(ip, domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       ip: ip,
       domain: domain
     ]
-    Mandrillex.request("ips/set-custom-dns", params)
+    Mandrill.request("ips/set-custom-dns", params)
   end
 end

@@ -1,4 +1,4 @@
-defmodule Mandrillex.Users do
+defmodule Mandrill.Users do
   @moduledoc """
   Users calls for Mandrill.
   """
@@ -8,8 +8,8 @@ defmodule Mandrillex.Users do
   API-connected user
   """
   def info do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("users/info", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("users/info", params)
   end
 
   @doc """
@@ -17,8 +17,8 @@ defmodule Mandrillex.Users do
   a ping
   """
   def ping do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("users/ping", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("users/ping", params)
   end
   
   @doc """
@@ -26,8 +26,8 @@ defmodule Mandrillex.Users do
   ping (anal JSON parser version)
   """
   def ping2 do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("users/ping2", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("users/ping2", params)
   end
   
   @doc """
@@ -36,7 +36,7 @@ defmodule Mandrillex.Users do
   unverified
   """
   def senders do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("users/senders", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("users/senders", params)
   end
 end

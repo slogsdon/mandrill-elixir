@@ -1,4 +1,4 @@
-defmodule MandrillexTest do
+defmodule MandrillTest do
   use ExUnit.Case
 
   test "the truth" do
@@ -6,7 +6,7 @@ defmodule MandrillexTest do
   end
 
   test "ping returns pong" do
-  	Mandrillex.start
-  	assert Mandrillex.Users.ping == "PONG!"
+  	Mandrill.start
+  	assert Mandrill.Users.ping == "PONG!"
   end
 end

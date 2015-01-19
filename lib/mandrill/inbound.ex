@@ -1,4 +1,4 @@
-defmodule Mandrillex.Inbound do
+defmodule Mandrill.Inbound do
   @moduledoc """
   Inbound calls for Mandrill.
   """
@@ -8,22 +8,22 @@ defmodule Mandrillex.Inbound do
   for inbound delivery
   """
   def domains do
-    params = [ key: Mandrillex.key ]
-    Mandrillex.request("inbound/domains", params)
+    params = [ key: Mandrill.key ]
+    Mandrill.request("inbound/domains", params)
   end
 
   @doc """
   Add an inbound domain to your account
   """
   def add_domain(params) when is_list(params) do
-    Mandrillex.request("inbound/add_domain", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/add_domain", Enum.concat([key: Mandrill.key], params))
   end
   def add_domain(domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       domain: domain 
     ]
-    Mandrillex.request("inbound/add-domain", params)
+    Mandrill.request("inbound/add-domain", params)
   end
 
   @doc """
@@ -32,14 +32,14 @@ defmodule Mandrillex.Inbound do
   with the add-domain call
   """
   def check_domain(params) when is_list(params) do
-    Mandrillex.request("inbound/check-domain", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/check-domain", Enum.concat([key: Mandrill.key], params))
   end
   def check_domain(domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       domain: domain 
     ]
-    Mandrillex.request("inbound/check-domain", params)
+    Mandrill.request("inbound/check-domain", params)
   end
 
   @doc """
@@ -48,14 +48,14 @@ defmodule Mandrillex.Inbound do
   immediately.
   """
   def delete_domain(params) when is_list(params) do
-    Mandrillex.request("inbound/delete-domain", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/delete-domain", Enum.concat([key: Mandrill.key], params))
   end
   def delete_domain(domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       domain: domain 
     ]
-    Mandrillex.request("inbound/delete-domain", params)
+    Mandrill.request("inbound/delete-domain", params)
   end
 
   @doc """
@@ -63,30 +63,30 @@ defmodule Mandrillex.Inbound do
   inbound domain
   """
   def routes(params) when is_list(params) do
-    Mandrillex.request("inbound/routes", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/routes", Enum.concat([key: Mandrill.key], params))
   end
   def routes(domain) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       domain: domain 
     ]
-    Mandrillex.request("inbound/routes", params)
+    Mandrill.request("inbound/routes", params)
   end
 
   @doc """
   Add a new mailbox route to an inbound domain
   """
   def add_route(params) when is_list(params) do
-    Mandrillex.request("inbound/add-route", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/add-route", Enum.concat([key: Mandrill.key], params))
   end
   def add_route(domain, pattern, url) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       domain: domain,
       pattern: pattern,
       url: url
     ]
-    Mandrillex.request("inbound/add-route", params)
+    Mandrill.request("inbound/add-route", params)
   end
 
   @doc """
@@ -96,30 +96,30 @@ defmodule Mandrillex.Inbound do
   unchanged.
   """
   def update_route(params) when is_list(params) do
-    Mandrillex.request("inbound/update-route", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/update-route", Enum.concat([key: Mandrill.key], params))
   end
   def update_route(id, pattern, url) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id,
       pattern: pattern,
       url: url
     ]
-    Mandrillex.request("inbound/update-route", params)
+    Mandrill.request("inbound/update-route", params)
   end
 
   @doc """
   Delete an existing inbound mailbox route
   """
   def delete_route(params) when is_list(params) do
-    Mandrillex.request("inbound/delete-route", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/delete-route", Enum.concat([key: Mandrill.key], params))
   end
   def delete_route(id) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id 
     ]
-    Mandrillex.request("inbound/delete-route", params)
+    Mandrill.request("inbound/delete-route", params)
   end
 
   @doc """
@@ -129,17 +129,17 @@ defmodule Mandrillex.Inbound do
   been sent over SMTP
   """
   def send_raw(params) when is_list(params) do
-    Mandrillex.request("inbound/send-raw", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("inbound/send-raw", Enum.concat([key: Mandrill.key], params))
   end
   def send_raw(raw_message, to \\ nil, mail_from, helo, client_address) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       raw_message: raw_message,
       to: to,
       mail_from: mail_from,
       helo: helo,
       client_address: client_address 
     ]
-    Mandrillex.request("inbound/send-raw", params)
+    Mandrill.request("inbound/send-raw", params)
   end
 end

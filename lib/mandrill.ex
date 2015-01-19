@@ -1,4 +1,4 @@
-defmodule Mandrillex do
+defmodule Mandrill do
   @moduledoc """
   An HTTP client for Mandrill.
   """
@@ -8,7 +8,7 @@ defmodule Mandrillex do
   use HTTPoison.Base
 
   def start(_type, _args) do
-    Mandrillex.Supervisor.start_link
+    Mandrill.Supervisor.start_link
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule Mandrillex do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrillex.post(endpoint, JSEX.encode! body).body
+    Mandrill.post(endpoint, JSEX.encode! body).body
   end
 
   @doc """
@@ -47,7 +47,7 @@ defmodule Mandrillex do
   Returns binary
   """
   def key do
-    Application.get_env(:mandrillex, :key) ||
+    Application.get_env(:mandrill, :key) ||
       System.get_env("MANDRILL_KEY")
   end
 end

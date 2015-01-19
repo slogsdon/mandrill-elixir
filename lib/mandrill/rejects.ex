@@ -1,4 +1,4 @@
-defmodule Mandrillex.Rejects do
+defmodule Mandrill.Rejects do
   @moduledoc """
   Rejects calls for Mandrill.
   """
@@ -13,16 +13,16 @@ defmodule Mandrillex.Rejects do
   have no effect.
   """
   def add(params) when is_list(params) do
-    Mandrillex.request("rejects/add", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("rejects/add", Enum.concat([key: Mandrill.key], params))
   end
   def add(email, comment, subaccount) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       email: email,
       comment: comment,
       subaccount: subaccount
     ]
-    Mandrillex.request("rejects/add", params)
+    Mandrill.request("rejects/add", params)
   end
 
   @doc """ 
@@ -34,16 +34,16 @@ defmodule Mandrillex.Rejects do
   include_expired to true to include them.
   """
   def list(params) when is_list(params) do
-    Mandrillex.request("rejects/list", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("rejects/list", Enum.concat([key: Mandrill.key], params))
   end
   def list(email, include_expired, subaccount) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       email: email,
       include_expired: include_expired,
       subaccount: subaccount
     ]
-    Mandrillex.request("rejects/list", params)
+    Mandrill.request("rejects/list", params)
   end
 
   @doc """
@@ -54,14 +54,14 @@ defmodule Mandrillex.Rejects do
   your reputation.
   """
   def delete(params) when is_list(params) do
-    Mandrillex.request("rejects/delete", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("rejects/delete", Enum.concat([key: Mandrill.key], params))
   end
   def delete(email, subaccount) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       email: email,
       subaccount: subaccount
     ]
-    Mandrillex.request("rejects/delete", params)
+    Mandrill.request("rejects/delete", params)
   end
 end

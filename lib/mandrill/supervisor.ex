@@ -1,4 +1,4 @@
-defmodule Mandrillex.Supervisor do
+defmodule Mandrill.Supervisor do
   use Supervisor
 
   def start_link do
@@ -8,7 +8,7 @@ defmodule Mandrillex.Supervisor do
   def init([]) do
     children = [
       # Define workers and child supervisors to be supervised
-      # worker(Mandrillex.Worker, [])
+      # worker(Mandrill.Worker, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/Supervisor.Behaviour.html

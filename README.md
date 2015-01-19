@@ -1,21 +1,21 @@
-# mandrillex
+# mandrill-elixir
 
 a Mandrill wrapper for Elixir
 
 ## Usage
 
 > ##### Note
-> mandrillex requires the `MANDRILL_KEY` environment variable set to a 
+> mandrill requires the `MANDRILL_KEY` environment variable set to a 
 > valid API key associated with your Mandrill account.
 
 ```elixir
-iex> Mandrillex.start
+iex> Mandrill.start
 :ok
 
-iex> Mandrillex.key
+iex> Mandrill.key
 "your_key"
 
-iex> Mandrillex.Users.info
+iex> Mandrill.Users.info
 [username: "your_username", created_at: "2013-12-05 00:24:19.47554",
  public_id: "your_public_id", reputation: 0, hourly_quota: 25,
  backlog: 0,
@@ -38,7 +38,7 @@ iex> Mandrillex.Users.info
    complaints: 0, unsubs: 0, opens: 0, unique_opens: 0, clicks: 0,
    unique_clicks: 0]]]
 
-iex> Mandrillex.Users.info[:username]
+iex> Mandrill.Users.info[:username]
 "your_username"
 ```
 
@@ -53,6 +53,6 @@ See [Mandrill's API docs](https://mandrillapp.com/api/docs/).
 
 ## License
 
-See [LICENSE](https://github.com/slogsdon/mandrillex/blob/master/LICENSE)
+See [LICENSE](https://github.com/slogsdon/mandrill/blob/master/LICENSE)
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/949f7db1a2574d19a36cf9a21a760a6a "githalytics.com")](http://githalytics.com/slogsdon/mandrillex)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/949f7db1a2574d19a36cf9a21a760a6a "githalytics.com")](http://githalytics.com/slogsdon/mandrill)

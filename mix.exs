@@ -1,9 +1,9 @@
-defmodule Mandrillex.Mixfile do
+defmodule Mandrill.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :mandrillex,
-      version: "0.2.0",
+    [ app: :mandrill,
+      version: "0.3.0",
       elixir: "~> 1.0",
       description: description,
       package: package,
@@ -11,7 +11,7 @@ defmodule Mandrillex.Mixfile do
   end
 
   def application do
-    [ mod: { Mandrillex, [] },
+    [ mod: { Mandrill, [] },
       applications: [:httpoison] ]
   end
 
@@ -37,6 +37,6 @@ defmodule Mandrillex.Mixfile do
     [ files: [ "lib", "mix.exs", "README.md", "LICENSE" ],
       contributors: [ "Shane Logsdon" ],
       licenses: [ "MIT" ],
-      links: %{ "GitHub" => "https://github.com/slogsdon/mandrillex" } ]
+      links: %{ "GitHub" => "https://github.com/slogsdon/mandrill-elixir" } ]
   end
 end

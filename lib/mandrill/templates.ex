@@ -1,4 +1,4 @@
-defmodule Mandrillex.Templates do
+defmodule Mandrill.Templates do
   @moduledoc """
   Templates calls for Mandrill.
   """
@@ -7,11 +7,11 @@ defmodule Mandrillex.Templates do
   Add a new template
   """
   def add(params) when is_list(params) do
-    Mandrillex.request("templates/add", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/add", Enum.concat([key: Mandrill.key], params))
   end
   def add(name, from_email, from_name, subject, code, text, publish, labels) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name, 
       from_email: from_email,
       from_name: from_name,
@@ -21,7 +21,7 @@ defmodule Mandrillex.Templates do
       publish: publish,
       labels: labels
     ]
-    Mandrillex.request("templates/add", params)
+    Mandrill.request("templates/add", params)
   end
 
   @doc """
@@ -29,14 +29,14 @@ defmodule Mandrillex.Templates do
   template
   """
   def info(params) when is_list(params) do
-    Mandrillex.request("templates/info", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/info", Enum.concat([key: Mandrill.key], params))
   end
   def info(name) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name
     ]
-    Mandrillex.request("templates/info", params)
+    Mandrill.request("templates/info", params)
   end
 
   @doc """
@@ -45,11 +45,11 @@ defmodule Mandrillex.Templates do
   values will remain unchanged.
   """
   def update(params) when is_list(params) do
-    Mandrillex.request("templates/update", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/update", Enum.concat([key: Mandrill.key], params))
   end
   def update(name, from_email, from_name, subject, code, text, publish, labels) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name,
       from_email: from_email,
       from_name: from_name,
@@ -59,7 +59,7 @@ defmodule Mandrillex.Templates do
       publish: publish,
       labels: labels 
     ]
-    Mandrillex.request("templates/update", params)
+    Mandrill.request("templates/update", params)
   end
 
   @doc """
@@ -69,28 +69,28 @@ defmodule Mandrillex.Templates do
   previously in draft.
   """
   def publish(params) when is_list(params) do
-    Mandrillex.request("templates/publish", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/publish", Enum.concat([key: Mandrill.key], params))
   end
   def publish(name) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name
     ]
-    Mandrillex.request("templates/publish", params)
+    Mandrill.request("templates/publish", params)
   end
 
   @doc """
   Delete a template
   """
   def delete(params) when is_list(params) do
-    Mandrillex.request("templates/delete", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/delete", Enum.concat([key: Mandrill.key], params))
   end
   def delete(name) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name 
     ]
-    Mandrillex.request("templates/delete", params)
+    Mandrill.request("templates/delete", params)
   end
 
   @doc """
@@ -98,14 +98,14 @@ defmodule Mandrillex.Templates do
   available to this user
   """
   def list(params) when is_list(params) do
-    Mandrillex.request("templates/list", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/list", Enum.concat([key: Mandrill.key], params))
   end
   def list(label) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       label: label
     ]
-    Mandrillex.request("templates/list", params)
+    Mandrill.request("templates/list", params)
   end
 
   @doc """
@@ -113,14 +113,14 @@ defmodule Mandrillex.Templates do
   the last 30 days) for a template
   """
   def time_series(params) when is_list(params) do
-    Mandrillex.request("templates/time-series", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/time-series", Enum.concat([key: Mandrill.key], params))
   end
   def time_series(name) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       name: name
     ]
-    Mandrillex.request("templates/time-series", params)
+    Mandrill.request("templates/time-series", params)
   end
 
   @doc """
@@ -128,15 +128,15 @@ defmodule Mandrillex.Templates do
   into a template, returning the HTML that results
   """
   def render(params) when is_list(params) do
-    Mandrillex.request("templates/render", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("templates/render", Enum.concat([key: Mandrill.key], params))
   end
   def render(template_name, template_content, merge_vars) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       template_name: template_name,
       template_content: template_content,
       merge_vars: merge_vars 
     ]
-    Mandrillex.request("templates/render", params)
+    Mandrill.request("templates/render", params)
   end
 end

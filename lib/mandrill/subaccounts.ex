@@ -1,4 +1,4 @@
-defmodule Mandrillex.Subaccounts do
+defmodule Mandrill.Subaccounts do
   @moduledoc """
   Subaccounts calls for Mandrill.
   """
@@ -9,31 +9,31 @@ defmodule Mandrillex.Subaccounts do
   prefix
   """
   def list(params) when is_list(params) do
-    Mandrillex.request("subaccounts/list", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/list", Enum.concat([key: Mandrill.key], params))
   end
   def list(q) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       q: q 
     ]
-    Mandrillex.request("subaccounts/list", params)
+    Mandrill.request("subaccounts/list", params)
   end
 
   @doc """
   Add a new subaccount
   """
   def add(params) when is_list(params) do
-    Mandrillex.request("subaccounts/add", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/add", Enum.concat([key: Mandrill.key], params))
   end
   def add(id, name, notes, custom_quota) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id,
       name: name,
       notes: notes,
       custom_quota: custom_quota
     ]
-    Mandrillex.request("subaccounts/add", params)
+    Mandrill.request("subaccounts/add", params)
   end
 
   @doc """
@@ -41,31 +41,31 @@ defmodule Mandrillex.Subaccounts do
   return the data about it
   """
   def info(params) when is_list(params) do
-    Mandrillex.request("subaccounts/info", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/info", Enum.concat([key: Mandrill.key], params))
   end
   def info(id) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id
     ]
-    Mandrillex.request("subaccounts/info", params)
+    Mandrill.request("subaccounts/info", params)
   end
 
   @doc """
   Update an existing subaccount
   """
   def update(params) when is_list(params) do
-    Mandrillex.request("subaccounts/update", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/update", Enum.concat([key: Mandrill.key], params))
   end
   def update(id, name, notes, custom_quota) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id,
       name: name,
       notes: notes,
       custom_quota: custom_quota
     ]
-    Mandrillex.request("subaccounts/update", params)
+    Mandrill.request("subaccounts/update", params)
   end
 
   @doc """
@@ -75,14 +75,14 @@ defmodule Mandrillex.Subaccounts do
   sending calls to this subaccount will fail.
   """
   def delete(params) when is_list(params) do
-    Mandrillex.request("subaccounts/delete", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/delete", Enum.concat([key: Mandrill.key], params))
   end
   def delete(id) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id 
     ]
-    Mandrillex.request("subaccounts/delete", params)
+    Mandrill.request("subaccounts/delete", params)
   end
 
   @doc """
@@ -92,27 +92,27 @@ defmodule Mandrillex.Subaccounts do
   subaccount is resumed.
   """
   def pause(params) when is_list(params) do
-    Mandrillex.request("subaccounts/pause", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/pause", Enum.concat([key: Mandrill.key], params))
   end
   def pause(id) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id
     ]
-    Mandrillex.request("subaccounts/pause", params)
+    Mandrill.request("subaccounts/pause", params)
   end
 
   @doc """
   Resume a paused subaccount's sending
   """
   def resume(params) when is_list(params) do
-    Mandrillex.request("subaccounts/resume", Enum.concat([key: Mandrillex.key], params))
+    Mandrill.request("subaccounts/resume", Enum.concat([key: Mandrill.key], params))
   end
   def resume(id) do
     params = [ 
-      key: Mandrillex.key,
+      key: Mandrill.key,
       id: id 
     ]
-    Mandrillex.request("subaccounts/resume", params)
+    Mandrill.request("subaccounts/resume", params)
   end
 end
