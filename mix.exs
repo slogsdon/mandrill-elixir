@@ -19,7 +19,7 @@ defmodule Mandrill.Mixfile do
     [
       { :httpoison, "~> 0.3" },
       { :hackney, "~> 0.13.1" }, # not included in hex version of httpoison :(
-      { :jsex, "~> 2.0.0" },
+      { :exjsx, "~> 3.1.0", app: false },
       { :ex_doc, "~> 0.6.1", only: :docs },
       { :earmark, "~> 0.1.12", only: :docs }
     ]
