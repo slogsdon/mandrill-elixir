@@ -28,7 +28,7 @@ defmodule Mandrill do
   Returns Record or ArgumentError
   """
   def process_response_body(body) do
-    JSEX.decode!(body, [{:labels, :atom}])
+    JSX.decode!(body, [{:labels, :atom}])
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post(endpoint, JSEX.encode! body).body
+    Mandrill.post(endpoint, JSX.encode! body).body
   end
 
   @doc """
