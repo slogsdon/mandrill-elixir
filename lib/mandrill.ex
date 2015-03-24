@@ -39,7 +39,7 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post(endpoint, JSX.encode! body).body
+    Mandrill.post!(endpoint, JSX.encode! body).body
   end
 
   @doc """
