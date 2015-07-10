@@ -12,7 +12,7 @@ defmodule Mandrill.Mixfile do
 
   def application do
     [ mod: { Mandrill, [] },
-      applications: [:httpoison] ]
+      applications: [:httpoison, :exjsx] ]
   end
 
   defp deps do
