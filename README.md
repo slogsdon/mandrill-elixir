@@ -1,6 +1,17 @@
-# mandrill-elixir
+# Mandrill [![Hex.pm](https://img.shields.io/hexpm/v/mandrill.svg)](https://hex.pm/packages/mandrill) [![Docs](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](http://hexdocs.pm/mandrill/0.4.1/)
 
-a Mandrill wrapper for Elixir
+A Mandrill wrapper for Elixir.
+
+## Installation
+
+Add ``mandrill`` to your dependencies in your ``mix.exs``.
+
+```Elixir
+defp deps do
+  [...
+   {:mandrill, "~> 0.4"}]
+end
+```
 
 ## Usage
 
