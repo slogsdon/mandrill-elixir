@@ -18,7 +18,7 @@ defmodule Mandrill.Mixfile do
   defp deps do
     [
       { :httpoison, "~> 0.6" },
-      { :exjsx, "~> 3.1.0", app: false },
+      { :exjsx, "~> 3.2.0", app: false },
       { :ex_doc, "~> 0.6.1", only: :docs },
       { :earmark, "~> 0.1.12", only: :docs }
     ]
