@@ -16,8 +16,8 @@ end
 ## Usage
 
 > ##### Note
-> mandrill requires the `MANDRILL_KEY` environment variable set to a 
-> valid API key associated with your Mandrill account.
+> You must provide a valid api key, either through the mix config value
+> `:mandrill, :key`, or the `MANDRILL_KEY` environment variable.
 
 ```elixir
 iex> Mandrill.start

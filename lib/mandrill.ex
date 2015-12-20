@@ -43,7 +43,8 @@ defmodule Mandrill do
   end
 
   @doc """
-  Grabs MANDRILL_KEY from system ENV
+  Gets the api key from :mandrill, :key application env or
+  MANDRILL_KEY from system ENV
   Returns binary
   """
   def key do
