@@ -22,13 +22,13 @@ defmodule Mandrill do
   end
 
   @doc """
-  Converts the binary keys in our response to atoms.
+  Converts the binary keys in our response to strings.
   Args:
     * body - string binary response
   Returns Record or ArgumentError
   """
   def process_response_body(body) do
-    JSX.decode!(body, [{:labels, :atom}])
+    JSX.decode!(body)
   end
 
   @doc """
