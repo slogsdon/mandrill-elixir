@@ -3,7 +3,7 @@ defmodule Mandrill.Mixfile do
 
   def project do
     [ app: :mandrill,
-      version: "0.4.1",
+      version: "0.5.0",
       elixir: "~> 1.0",
       description: description,
       package: package,
@@ -34,7 +34,7 @@ defmodule Mandrill.Mixfile do
 
   defp package do
     [ files: [ "lib", "mix.exs", "README.md", "LICENSE" ],
-      contributors: [ "Shane Logsdon" ],
+      maintainers: [ "Shane Logsdon" ],
       licenses: [ "MIT" ],
       links: %{ "GitHub" => "https://github.com/slogsdon/mandrill-elixir" } ]
   end
