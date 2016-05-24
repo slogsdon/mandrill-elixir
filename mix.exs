@@ -3,7 +3,7 @@ defmodule Mandrill.Mixfile do
 
   def project do
     [ app: :mandrill,
-      version: "0.5.0",
+      version: "0.5.1",
       elixir: "~> 1.0",
       description: description,
       package: package,
@@ -17,7 +17,7 @@ defmodule Mandrill.Mixfile do
 
   defp deps do
     [
-      { :httpoison, "~> 0.6" },
+      { :httpoison, "~> 0.8.3" },
       { :exjsx, "~> 3.2.0", app: false },
       { :ex_doc, "~> 0.6.1", only: :docs },
       { :earmark, "~> 0.1.12", only: :docs }
