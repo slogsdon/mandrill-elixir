@@ -5,9 +5,9 @@ defmodule Mandrill.Mixfile do
     [ app: :mandrill,
       version: "0.5.0",
       elixir: "~> 1.0",
-      description: description,
-      package: package,
-      deps: deps ]
+      description: description(),
+      package: package(),
+      deps: deps() ]
   end
 
   def application do
@@ -17,10 +17,10 @@ defmodule Mandrill.Mixfile do
 
   defp deps do
     [
-      { :httpoison, "~> 0.6" },
-      { :exjsx, "~> 3.2.0", app: false },
-      { :ex_doc, "~> 0.6.1", only: :docs },
-      { :earmark, "~> 0.1.12", only: :docs }
+      {:httpoison, "~> 1.2"},
+      {:exjsx, "~> 4.0", app: false},
+      {:ex_doc, "~> 0.6.1", only: :docs },
+      {:earmark, "~> 0.1.12", only: :docs }
     ]
   end
 
