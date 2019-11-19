@@ -10,13 +10,15 @@ defmodule Mandrill.Whitelists do
   will be removed automatically.
   """
   def add(params) when is_list(params) do
-    Mandrill.request("whitelists/add", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("whitelists/add", Enum.concat([key: Mandrill.key()], params))
   end
+
   def add(email) do
-    params = [ 
-      key: Mandrill.key,
-      email: email 
+    params = [
+      key: Mandrill.key(),
+      email: email
     ]
+
     Mandrill.request("whitelists/add", params)
   end
 
@@ -27,13 +29,15 @@ defmodule Mandrill.Whitelists do
   Returns up to 1000 results.
   """
   def list(params) when is_list(params) do
-    Mandrill.request("whitelists/list", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("whitelists/list", Enum.concat([key: Mandrill.key()], params))
   end
+
   def list(email) do
-    params = [ 
-      key: Mandrill.key,
-      email: email 
+    params = [
+      key: Mandrill.key(),
+      email: email
     ]
+
     Mandrill.request("whitelists/list", params)
   end
 
@@ -42,13 +46,15 @@ defmodule Mandrill.Whitelists do
   whitelist.
   """
   def delete(params) when is_list(params) do
-    Mandrill.request("whitelists/delete", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("whitelists/delete", Enum.concat([key: Mandrill.key()], params))
   end
+
   def delete(email) do
-    params = [ 
-      key: Mandrill.key,
-      email: email 
+    params = [
+      key: Mandrill.key(),
+      email: email
     ]
+
     Mandrill.request("whitelists/delete", params)
   end
 end

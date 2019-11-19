@@ -8,7 +8,7 @@ defmodule Mandrill do
   use HTTPoison.Base
 
   def start(_type, _args) do
-    Mandrill.Supervisor.start_link
+    Mandrill.Supervisor.start_link()
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post!(endpoint, JSX.encode! body).body
+    Mandrill.post!(endpoint, JSX.encode!(body)).body
   end
 
   @doc """
