@@ -6,6 +6,8 @@ defmodule Mandrill.Mixfile do
       app: :mandrill,
       version: "0.5.0",
       elixir: "~> 1.0",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
       deps: deps()
@@ -13,13 +15,14 @@ defmodule Mandrill.Mixfile do
   end
 
   def application do
-    [mod: {Mandrill, []}, applications: [:httpoison, :exjsx]]
+    []
   end
 
   defp deps do
     [
       {:httpoison, ">= 0.0.0"},
-      {:ex_doc, ">= 0.0.0"}
+      {:ex_doc, ">= 0.0.0"},
+      {:jason, ">= 0.0.0", only: :test}
     ]
   end
 
@@ -33,6 +36,7 @@ defmodule Mandrill.Mixfile do
 
   defp package do
     [
+      name: :mandrill,
       files: ["lib", "mix.exs", "README.md", "LICENSE"],
       maintainers: ["Shane Logsdon"],
       licenses: ["MIT"],

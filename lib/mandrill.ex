@@ -28,7 +28,7 @@ defmodule Mandrill do
   Returns Record or ArgumentError
   """
   def process_response_body(body) do
-    JSX.decode!(body)
+    json_library().decode!(body)
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post!(endpoint, JSX.encode!(body)).body
+    Mandrill.post!(endpoint, json_library().encode!(body)).body
   end
 
   @doc """
@@ -50,5 +50,9 @@ defmodule Mandrill do
   def key do
     Application.get_env(:mandrill, :key) ||
       System.get_env("MANDRILL_KEY")
+  end
+
+  def json_library do
+    Application.get_env(:mandrill, :json_library, Jason)
   end
 end
