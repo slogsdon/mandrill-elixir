@@ -5,7 +5,7 @@ defmodule Mandrill.Mixfile do
     [
       app: :mandrill,
       version: "0.5.0",
-      elixir: "~> 1.0",
+      elixir: "~> 1.4",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       description: description(),
