@@ -2,29 +2,13 @@ defmodule Mandrill do
   @moduledoc """
   An HTTP client for Mandrill.
   """
-  use Tesla
 
-  plug(Tesla.Middleware.BaseUrl, "https://mandrillapp.com/api/1.0/")
-  plug(Tesla.Middleware.JSON)
+  defmodule Client do
+    @moduledoc false
+    use Tesla
 
-  @doc """
-  Creates the URL for our endpoint.
-  Args:
-    * endpoint - part of the API we're hitting
-  Returns string
-  """
-  def process_url(endpoint) do
-    "https://mandrillapp.com/api/1.0/" <> endpoint <> ".json"
-  end
-
-  @doc """
-  Converts the binary keys in our response to strings.
-  Args:
-    * body - string binary response
-  Returns Record or ArgumentError
-  """
-  def process_response_body(body) do
-    json_library().decode!(body)
+    plug Tesla.Middleware.BaseUrl, "https://mandrillapp.com/api/1.0/"
+    plug Tesla.Middleware.JSON
   end
 
   @doc """
@@ -36,7 +20,7 @@ defmodule Mandrill do
   """
   def request(endpoint, body) do
     body = json_library().encode!(Map.new(body))
-    post!(endpoint <> ".json", body).body
+    Client.post!(endpoint <> ".json", body).body
   end
 
   @doc """
