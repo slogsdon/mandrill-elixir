@@ -8,7 +8,7 @@ defmodule Mandrill.Senders do
   use this account.
   """
   def list do
-    params = [ key: Mandrill.key ]
+    params = [key: Mandrill.key()]
     Mandrill.request("senders/list", params)
   end
 
@@ -17,7 +17,7 @@ defmodule Mandrill.Senders do
   been added to this account.
   """
   def domains do
-    params = [ key: Mandrill.key ]
+    params = [key: Mandrill.key()]
     Mandrill.request("senders/domains", params)
   end
 
@@ -28,13 +28,15 @@ defmodule Mandrill.Senders do
   to add them ahead of time.
   """
   def add_domain(params) when is_list(params) do
-    Mandrill.request("senders/add-domain", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("senders/add-domain", Enum.concat([key: Mandrill.key()], params))
   end
+
   def add_domain(domain) do
-    params = [ 
-      key: Mandrill.key,
-      domain: domain 
+    params = [
+      key: Mandrill.key(),
+      domain: domain
     ]
+
     Mandrill.request("senders/add-domain", params)
   end
 
@@ -45,13 +47,15 @@ defmodule Mandrill.Senders do
   added automatically.
   """
   def check_domain(params) when is_list(params) do
-    Mandrill.request("senders/check-domain", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("senders/check-domain", Enum.concat([key: Mandrill.key()], params))
   end
+
   def check_domain(domain) do
-    params = [ 
-      key: Mandrill.key,
-      domain: domain 
+    params = [
+      key: Mandrill.key(),
+      domain: domain
     ]
+
     Mandrill.request("senders/check-domain", params)
   end
 
@@ -68,14 +72,16 @@ defmodule Mandrill.Senders do
   from sending mail signed by your domain.
   """
   def verify_domain(params) when is_list(params) do
-    Mandrill.request("senders/verify-domain", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("senders/verify-domain", Enum.concat([key: Mandrill.key()], params))
   end
+
   def verify_domain(domain, mailbox) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       domain: domain,
       mailbox: mailbox
     ]
+
     Mandrill.request("senders/verify-domain", params)
   end
 
@@ -85,13 +91,15 @@ defmodule Mandrill.Senders do
   recent stats
   """
   def info(params) when is_list(params) do
-    Mandrill.request("senders/info", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("senders/info", Enum.concat([key: Mandrill.key()], params))
   end
+
   def info(address) do
-    params = [ 
-      key: Mandrill.key,
-      address: address 
+    params = [
+      key: Mandrill.key(),
+      address: address
     ]
+
     Mandrill.request("senders/info", params)
   end
 
@@ -100,13 +108,15 @@ defmodule Mandrill.Senders do
   for the last 30 days) for a sender
   """
   def time_series(params) when is_list(params) do
-    Mandrill.request("senders/time-series", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("senders/time-series", Enum.concat([key: Mandrill.key()], params))
   end
+
   def time_series(address) do
-    params = [ 
-      key: Mandrill.key,
-      address: address 
+    params = [
+      key: Mandrill.key(),
+      address: address
     ]
+
     Mandrill.request("senders/time-series", params)
   end
 end

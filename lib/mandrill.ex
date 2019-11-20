@@ -3,32 +3,12 @@ defmodule Mandrill do
   An HTTP client for Mandrill.
   """
 
-  # Let's build on top of HTTPoison
-  use Application
-  use HTTPoison.Base
+  defmodule Client do
+    @moduledoc false
+    use Tesla
 
-  def start(_type, _args) do
-    Mandrill.Supervisor.start_link
-  end
-
-  @doc """
-  Creates the URL for our endpoint.
-  Args:
-    * endpoint - part of the API we're hitting
-  Returns string
-  """
-  def process_url(endpoint) do
-    "https://mandrillapp.com/api/1.0/" <> endpoint <> ".json"
-  end
-
-  @doc """
-  Converts the binary keys in our response to strings.
-  Args:
-    * body - string binary response
-  Returns Record or ArgumentError
-  """
-  def process_response_body(body) do
-    JSX.decode!(body)
+    plug Tesla.Middleware.BaseUrl, "https://mandrillapp.com/api/1.0/"
+    plug Tesla.Middleware.JSON
   end
 
   @doc """
@@ -39,7 +19,8 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post!(endpoint, JSX.encode! body).body
+    body = json_library().encode!(Map.new(body))
+    Client.post!(endpoint <> ".json", body).body
   end
 
   @doc """
@@ -48,7 +29,10 @@ defmodule Mandrill do
   Returns binary
   """
   def key do
-    Application.get_env(:mandrill, :key) ||
-      System.get_env("MANDRILL_KEY")
+    Application.get_env(:mandrill, :key) || System.get_env("MANDRILL_KEY")
+  end
+
+  def json_library do
+    Application.get_env(:mandrill, :json_library, Jason)
   end
 end

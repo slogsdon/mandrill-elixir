@@ -9,7 +9,7 @@ Add ``mandrill`` to your dependencies in your ``mix.exs``.
 ```Elixir
 defp deps do
   [...
-   {:mandrill, "~> 0.4"}]
+   {:mandrill, "~> 0.7"}]
 end
 ```
 
@@ -20,12 +20,6 @@ end
 > `:mandrill, :key`, or the `MANDRILL_KEY` environment variable.
 
 ```elixir
-iex> Mandrill.start
-:ok
-
-iex> Mandrill.key
-"your_key"
-
 iex> Mandrill.Users.info
 [username: "your_username", created_at: "2013-12-05 00:24:19.47554",
  public_id: "your_public_id", reputation: 0, hourly_quota: 25,
@@ -57,13 +51,8 @@ iex> Mandrill.Users.info[:username]
 
 See [Mandrill's API docs](https://mandrillapp.com/api/docs/).
 
-## Dependencies
-
-- [HTTPoison](https://github.com/edgurgel/httpoison)
-- [JSEX](https://github.com/talentdeficit/jsex)
-
 ## License
 
-See [LICENSE](https://github.com/slogsdon/mandrill/blob/master/LICENSE)
+See [LICENSE](https://github.com/slogsdon/mandrill-elixir/blob/master/LICENSE)
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/949f7db1a2574d19a36cf9a21a760a6a "githalytics.com")](http://githalytics.com/slogsdon/mandrill)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/949f7db1a2574d19a36cf9a21a760a6a "githalytics.com")](http://githalytics.com/slogsdon/mandrill-elixir)

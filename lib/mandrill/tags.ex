@@ -8,7 +8,7 @@ defmodule Mandrill.Tags do
   information
   """
   def list do
-    params = [ key: Mandrill.key ]
+    params = [key: Mandrill.key()]
     Mandrill.request("tags/list", params)
   end
 
@@ -20,13 +20,15 @@ defmodule Mandrill.Tags do
   operation, so use it carefully.
   """
   def delete(params) when is_list(params) do
-    Mandrill.request("tags/delete", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("tags/delete", Enum.concat([key: Mandrill.key()], params))
   end
+
   def delete(tag) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       tag: tag
     ]
+
     Mandrill.request("tags/delete", params)
   end
 
@@ -36,13 +38,15 @@ defmodule Mandrill.Tags do
   stats
   """
   def info(params) when is_list(params) do
-    Mandrill.request("tags/info", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("tags/info", Enum.concat([key: Mandrill.key()], params))
   end
+
   def info(tag) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       tag: tag
     ]
+
     Mandrill.request("tags/info", params)
   end
 
@@ -51,13 +55,15 @@ defmodule Mandrill.Tags do
   for the last 30 days) for a tag
   """
   def time_series(params) when is_list(params) do
-    Mandrill.request("tags/time-series", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("tags/time-series", Enum.concat([key: Mandrill.key()], params))
   end
+
   def time_series(tag) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       tag: tag
     ]
+
     Mandrill.request("tags/time-series", params)
   end
 
@@ -66,7 +72,7 @@ defmodule Mandrill.Tags do
   for the last 30 days) for all tags
   """
   def all_time_series do
-    params = [ key: Mandrill.key ]
+    params = [key: Mandrill.key()]
     Mandrill.request("tags/all-time-series", params)
   end
 end

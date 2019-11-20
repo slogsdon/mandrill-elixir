@@ -15,13 +15,15 @@ defmodule Mandrill.Exports do
   format for that job type.
   """
   def info(params) when is_list(params) do
-    Mandrill.request("exports/info", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("exports/info", Enum.concat([key: Mandrill.key()], params))
   end
+
   def info(id) do
     params = [
-      key: Mandrill.key,
+      key: Mandrill.key(),
       id: id
     ]
+
     Mandrill.request("exports/info", params)
   end
 
@@ -29,7 +31,7 @@ defmodule Mandrill.Exports do
   Returns a list of your exports.
   """
   def list do
-    params = [ key: Mandrill.key ]
+    params = [key: Mandrill.key()]
     Mandrill.request("exports/list", params)
   end
 
@@ -43,13 +45,15 @@ defmodule Mandrill.Exports do
   expires_at.
   """
   def rejects(params) when is_list(params) do
-    Mandrill.request("exports/rejects", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("exports/rejects", Enum.concat([key: Mandrill.key()], params))
   end
+
   def rejects(notify_email) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       notify_email: notify_email
     ]
+
     Mandrill.request("exports/rejects", params)
   end
 
@@ -62,13 +66,15 @@ defmodule Mandrill.Exports do
   created_at.
   """
   def whitelist(params) when is_list(params) do
-    Mandrill.request("exports/whitelist", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("exports/whitelist", Enum.concat([key: Mandrill.key()], params))
   end
+
   def whitelist(notify_email) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       notify_email: notify_email
     ]
+
     Mandrill.request("exports/whitelist", params)
   end
 
@@ -86,11 +92,12 @@ defmodule Mandrill.Exports do
   included in the exported data.
   """
   def activity(params) when is_list(params) do
-    Mandrill.request("exports/activity", Enum.concat([key: Mandrill.key], params))
+    Mandrill.request("exports/activity", Enum.concat([key: Mandrill.key()], params))
   end
+
   def activity(notify_email, date_from, date_to, tags, senders, states, api_keys) do
-    params = [ 
-      key: Mandrill.key,
+    params = [
+      key: Mandrill.key(),
       notify_email: notify_email,
       date_from: date_from,
       date_to: date_to,
@@ -99,6 +106,7 @@ defmodule Mandrill.Exports do
       states: states,
       api_keys: api_keys
     ]
+
     Mandrill.request("exports/activity", params)
   end
 end
