@@ -2,14 +2,10 @@ defmodule Mandrill do
   @moduledoc """
   An HTTP client for Mandrill.
   """
+  use Tesla
 
-  # Let's build on top of HTTPoison
-  use Application
-  use HTTPoison.Base
-
-  def start(_type, _args) do
-    Mandrill.Supervisor.start_link()
-  end
+  plug(Tesla.Middleware.BaseUrl, "https://mandrillapp.com/api/1.0/")
+  plug(Tesla.Middleware.JSON)
 
   @doc """
   Creates the URL for our endpoint.
@@ -39,7 +35,8 @@ defmodule Mandrill do
   Returns dict
   """
   def request(endpoint, body) do
-    Mandrill.post!(endpoint, json_library().encode!(body)).body
+    body = json_library().encode!(Map.new(body))
+    post!(endpoint <> ".json", body).body
   end
 
   @doc """
@@ -48,8 +45,7 @@ defmodule Mandrill do
   Returns binary
   """
   def key do
-    Application.get_env(:mandrill, :key) ||
-      System.get_env("MANDRILL_KEY")
+    Application.get_env(:mandrill, :key) || System.get_env("MANDRILL_KEY")
   end
 
   def json_library do

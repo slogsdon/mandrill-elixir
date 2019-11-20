@@ -20,9 +20,10 @@ defmodule Mandrill.Mixfile do
 
   defp deps do
     [
-      {:httpoison, ">= 0.0.0"},
+      {:tesla, ">= 0.0.0"},
       {:ex_doc, ">= 0.0.0"},
-      {:jason, ">= 0.0.0", only: :test}
+      {:jason, ">= 0.0.0", only: :test, optional: true},
+      {:hackney, ">= 0.0.0", only: :test}
     ]
   end
 

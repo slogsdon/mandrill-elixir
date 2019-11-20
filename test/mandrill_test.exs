@@ -6,7 +6,6 @@ defmodule MandrillTest do
   end
 
   test "ping returns pong" do
-    Mandrill.start()
     assert Mandrill.Users.ping() == "PONG!"
   end
 
