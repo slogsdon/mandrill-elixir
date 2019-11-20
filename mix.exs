@@ -21,7 +21,7 @@ defmodule Mandrill.Mixfile do
   defp deps do
     [
       {:tesla, ">= 0.0.0"},
-      {:ex_doc, ">= 0.0.0", optional: true},
+      {:ex_doc, ">= 0.0.0", only: :dev},
       {:jason, ">= 0.0.0", only: :test, optional: true},
       {:hackney, ">= 0.0.0", only: :test}
     ]
